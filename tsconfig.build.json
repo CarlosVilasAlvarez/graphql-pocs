@@ -1,0 +1,7 @@
+{
+  "files": [],
+  "references": [
+    { "path": "packages/basic-apollo-typescript" },
+    { "path": "packages/error-handling" }
+  ]
+}

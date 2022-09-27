@@ -1,0 +1,33 @@
+{
+  "name": "graphql-pocs",
+  "description": "Monorepo displaying different graphql development techniques and features",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CarlosVilasAlvarez/graphql-pocs.git"
+  },
+  "author": "Carlos Vilas Álvarez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CarlosVilasAlvarez/graphql-pocs/issues"
+  },
+  "homepage": "https://github.com/CarlosVilasAlvarez/graphql-pocs#readme",
+  "scripts": {
+    "compile": "tsc --build tsconfig.build.json",
+    "prettier": "prettier \"packages/**/*.{ts,tsx,js,jsx,yml,json,graphql}\"",
+    "format": "npm run prettier -- --write",
+    "format:check": "npm run prettier -- --check",
+    "test": "npm test --workspaces"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "eslint": "^8.24.0",
+    "prettier": "^2.7.1",
+    "typescript": "^4.8.3"
+  },
+  "engine": {
+    "node": ">=16.0.0"
+  }
+}

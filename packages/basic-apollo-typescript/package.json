@@ -1,0 +1,26 @@
+{
+  "name": "basic-apollo-typescript",
+  "version": "0.0.0",
+  "description": "Basic Api using Apollo implementation",
+  "type": "module",
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CarlosVilasAlvarez/graphql-pocs.git"
+  },
+  "author": "Carlos Vilas Álvarez <carlosvilasalvarez@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CarlosVilasAlvarez/graphql-pocs/issues"
+  },
+  "homepage": "https://github.com/CarlosVilasAlvarez/graphql-pocs#readme",
+  "devDependencies": {
+    "typescript": "^4.8.3"
+  },
+  "dependencies": {
+    "apollo-server": "^3.10.2",
+    "graphql": "^16.6.0"
+  }
+}
