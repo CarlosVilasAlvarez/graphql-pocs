@@ -1,36 +1,13 @@
-import { ApolloServer, gql } from "apollo-server";
-
-const typeDefs = gql`
-  type Book {
-    title: String
-    author: String
-  }
-
-  type Query {
-    books: [Book]
-  }
-`;
-
-const books = [
-  {
-    title: "The Awakening",
-    author: "Kate Chopin",
-  },
-  {
-    title: "City of Glass",
-    author: "Paul Auster",
-  },
-];
-
-const resolvers = {
-  Query: {
-    books: () => books,
-  },
-};
+import { ApolloServer } from "apollo-server";
+import { errorTypes } from "./schema/errors.js";
+import { mutations } from "./schema/mutations.js";
+import { queries } from "./schema/queries.js";
+import { baseTypes } from "./schema/baseTypes.js";
+import { userResolvers } from "./resolvers/user.js";
 
 const server = new ApolloServer({
-  typeDefs,
-  resolvers,
+  typeDefs: [baseTypes, queries, mutations, errorTypes],
+  resolvers: [userResolvers],
   csrfPrevention: true,
   cache: "bounded",
 });
