@@ -17,12 +17,16 @@
     "prettier": "prettier \"packages/**/*.{ts,tsx,js,jsx,yml,json,graphql}\"",
     "format": "npm run prettier -- --write",
     "format:check": "npm run prettier -- --check",
-    "test": "npm test --workspaces"
+    "test": "npm test --workspaces",
+    "gen:types": "npm run gen:types --workspaces"
   },
   "workspaces": [
     "packages/*"
   ],
   "devDependencies": {
+    "@graphql-codegen/cli": "^2.13.0",
+    "@graphql-codegen/typescript": "^2.7.3",
+    "@graphql-codegen/typescript-resolvers": "^2.7.3",
     "eslint": "^8.24.0",
     "prettier": "^2.7.1",
     "typescript": "^4.8.3"

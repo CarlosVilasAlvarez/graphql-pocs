@@ -4,7 +4,9 @@
   "description": "Showcasing different error handling techniques",
   "type": "module",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "gen:types": "graphql-codegen",
+    "start": "npm run build && node dist/index.js"
   },
   "repository": {
     "type": "git",
