@@ -21,11 +21,8 @@ export const userResolvers: { Query: QueryResolvers } = {
       }
 
       return {
-        __typename: "UserPayload",
-        data: {
-          __typename: "User",
-          ...user,
-        },
+        __typename: "User",
+        ...user,
       };
     },
   },

@@ -5,9 +5,5 @@ export const queries = gql`
     user(email: ID!): UserResult!
   }
 
-  type UserPayload {
-    data: User
-  }
-
-  union UserResult = UserPayload | UserNotFoundError
+  union UserResult = User | UserNotFoundError
 `;
