@@ -1,3 +1,6 @@
+# Codegen files
+packages/*/src/types/*
+
 # Logs
 logs
 *.log
