@@ -1,0 +1,26 @@
+{
+  "name": "cursor-based-pagination",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "gen:types": "graphql-codegen",
+    "start": "npm run build && node dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CarlosVilasAlvarez/graphql-pocs.git"
+  },
+  "author": "Carlos Vilas Álvarez <carlosvilasalvarez@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CarlosVilasAlvarez/graphql-pocs/issues"
+  },
+  "homepage": "https://github.com/CarlosVilasAlvarez/graphql-pocs#readme",
+  "dependencies": {
+    "apollo-server": "^3.10.2",
+    "graphql": "^16.6.0"
+  }
+}

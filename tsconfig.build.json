@@ -2,6 +2,7 @@
   "files": [],
   "references": [
     { "path": "packages/basic-apollo-typescript" },
-    { "path": "packages/error-handling" }
+    { "path": "packages/error-handling" },
+    { "path": "packages/cursor-based-pagination" }
   ]
 }
