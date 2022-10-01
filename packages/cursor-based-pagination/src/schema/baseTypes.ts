@@ -3,7 +3,7 @@ import { gql } from "apollo-server";
 export const baseTypes = gql`
   type User {
     id: ID!
-    account: Account
+    account: Account!
     name: String!
     email: String!
   }

@@ -1,4 +1,5 @@
-import { QueryResolvers, UserResolvers, UsersConnection } from "../types/resolvers-types.js";
+import { Maybe } from "graphql/jsutils/Maybe.js";
+import { QueryResolvers, User, UsersConnection } from "../types/resolvers-types.js";
 
 const users = [
   {
@@ -39,12 +40,11 @@ const users = [
 export const userResolver: { Query: QueryResolvers } = {
   Query: {
     users: async (_, args): Promise<UsersConnection> => {
-      const { first, after } = args;
-      const cursor = after ? new Date(Buffer.from(after, "base64").toString("utf8")) : null;
-      console.log(cursor);
+      const { first, after: cursor, filters } = args;
 
       const edges = users
-        .filter((user) => !cursor || user.createdAt < cursor.toISOString())
+        .filter(filterUserByAccount(filters?.account))
+        .filter(filterUserByCursor(cursor))
         .slice(0, first)
         .map((user) => ({
           cursor: Buffer.from(user.createdAt).toString("base64"),
@@ -66,3 +66,24 @@ export const userResolver: { Query: QueryResolvers } = {
     },
   },
 };
+
+function filterUserByAccount(account: Maybe<string>) {
+  return (user: User) => {
+    if (account) {
+      return user.account.id === account;
+    }
+
+    return true;
+  };
+}
+
+function filterUserByCursor(cursor: Maybe<string>) {
+  return (user: User & { createdAt: string }) => {
+    if (cursor) {
+      const createdAtCursor = new Date(Buffer.from(cursor, "base64").toString("utf8"));
+      return user.createdAt > createdAtCursor.toISOString();
+    }
+
+    return true;
+  };
+}
